@@ -1,0 +1,2 @@
+# NotepadImitateWin
+winform做的高仿win10系统记事本，尽力做到了在99%的细节上和原版高度还原
