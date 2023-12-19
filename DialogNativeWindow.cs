@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 using System.Windows.Forms;
 using Msg = NativeMethods.Msg;
 
@@ -52,16 +51,12 @@ public class DialogNativeWindow : NativeWindow, IDisposable
 
     private void NativeChild()
     {
-        //查找openfileDialog中的子控件
+        //查找对话框中的子控件
         NativeMethods.EnumChildWindows(handle, new NativeMethods.EnumWindowsCallBack(WindowCallBack), 0);
     }
 
     private bool WindowCallBack(IntPtr childHandle, int lparam)
     {
-        //StringBuilder wndClass = new StringBuilder(256);
-        //StringBuilder wndText = new StringBuilder(256);
-        //NativeMethods.GetClassName(childHandle, wndClass, wndClass.Capacity);//获取控件类名
-        //NativeMethods.GetWindowText(childHandle, wndText, wndText.Capacity);
         if (setChildControlDlg != null)
         {
             setChildControlDlg.Invoke(this.handle, childHandle);
